@@ -1,0 +1,28 @@
+[
+    {
+        "url": "https://example.com",
+        "title": "Example Domain",
+        "emails": [],
+        "urls": [],
+        "organizations": []
+    },
+    {
+        "url": "https://www.python.org",
+        "title": "Welcome to Python.org",
+        "emails": [],
+        "urls": [],
+        "organizations": [
+            "Announcing Python Software Foundation",
+            "Python Software Foundation"
+        ]
+    },
+    {
+        "url": "https://www.wikipedia.org",
+        "title": "Wikipedia",
+        "emails": [],
+        "urls": [],
+        "organizations": [
+            "Wikimedia Foundation"
+        ]
+    }
+]
