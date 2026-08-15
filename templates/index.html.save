@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Web Data Extraction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Web Data Extraction</h1>
+
+    <p class="subtitle">
+        Web Data Extraction & Entity Resolution Pipeline
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="url"
+            name="url"
+            placeholder="Enter website URL"
+            required
+        >
+
+        <button type="submit">
+            Extract Data
+        </button>
+
+    </form>
+
+    {% if error %}
+
+    <div class="error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    {% if result %}
+
+    <div class="card">
+
+        <h2>Extraction Results</h2>
+
+        <h3>Website</h3>
+        <p>{{ result.url }}</p>
+
+        <h3>Page Title</h3>
+        <p>{{ result.title }}</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Organizations</h3>
+
+        {% if result.organizations %}
+
+        <ul>
+            {% for organization in result.organizations %}
+            <li>{{ organization }}</li>
+            {% endfor %}
+        </ul>
+
+        {% else %}
+
+        <p>No organizations found.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Email Addresses</h3>
+
+        {% if result.emails %}
+
+        <ul>
+            {% for email in result.emails %}
+            <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+
+        {% else %}
+
+        <p>No email addresses found.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>URLs Found</h3>
+
+        {% if result.urls %}
+
+        <ul>
+            {% for found_url in result.urls %}
+            <li>{{ found_url }}</li>
+            {% endfor %}
+        </ul>
+
+        {% else %}
+
+        <p>No URLs found.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Unique Titles</h3>
+
+        {% for title in result.unique_titles %}
+
+        <p>• {{ title }}</p>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

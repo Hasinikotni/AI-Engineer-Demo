@@ -27,7 +27,10 @@ def run_batch():
 
             save_page_data(url, page_data)
 
-            entities = extract_entities(page_data["text"])
+            entities = extract_entities(
+                   page_data["text"],
+                   page_data["html"]
+)
 
             print("Title:", page_data["title"])
             print("Emails:", entities["emails"])

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Web Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f6f7f9;
+            color: #20242a;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e7e9ed;
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #182230;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .brand-name {
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-subtitle {
+            color: #89919d;
+            font-size: 12px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            max-width: 1180px;
+            margin: auto;
+            padding: 58px 28px 80px;
+        }
+
+        .hero {
+            max-width: 760px;
+            margin-bottom: 38px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #667085;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: 42px;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            color: #161b22;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            color: #69727e;
+            font-size: 16px;
+            max-width: 650px;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-card {
+            background: #ffffff;
+            border: 1px solid #e4e7eb;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 38px;
+            box-shadow: 0 5px 20px rgba(20, 28, 38, 0.04);
+        }
+
+        .search-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #3d4652;
+            margin-bottom: 9px;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-row input {
+            flex: 1;
+            height: 48px;
+            border: 1px solid #d9dde3;
+            border-radius: 9px;
+            padding: 0 15px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #20242a;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .search-row input:focus {
+            border-color: #697586;
+        }
+
+        .search-row button {
+            height: 48px;
+            padding: 0 23px;
+            border: none;
+            border-radius: 9px;
+            background: #182230;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .search-row button:hover {
+            background: #2b3645;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        .error {
+            background: #fff5f5;
+            border: 1px solid #f0caca;
+            color: #b42318;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-heading {
+            margin: 42px 0 16px;
+        }
+
+        .section-heading h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: 19px;
+            color: #20242a;
+            letter-spacing: -0.3px;
+        }
+
+        .section-heading p {
+            font-size: 13px;
+            color: #8a929d;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           STATISTICS
+        ========================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .stat {
+            background: #ffffff;
+            border: 1px solid #e4e7eb;
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .stat-number {
+            font-family: "Manrope", sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #182230;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7a838e;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e4e7eb;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 18px;
+        }
+
+        .card-title {
+            font-family: "Manrope", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #20242a;
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           WEBSITE INFORMATION
+        ========================= */
+
+        .website-url {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #285ea8;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .website-url:hover {
+            text-decoration: underline;
+        }
+
+        .info-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #9299a3;
+            margin-top: 18px;
+            margin-bottom: 5px;
+        }
+
+        .page-title {
+            font-family: "Manrope", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #252a31;
+        }
+
+        /* =========================
+           LINKS
+        ========================= */
+
+        .links-count {
+            font-size: 13px;
+            color: #7b838e;
+            margin-top: -10px;
+            margin-bottom: 18px;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 14px;
+            background: #f8f9fa;
+            border: 1px solid #edf0f2;
+            border-radius: 9px;
+        }
+
+        .link-address {
+            color: #3c6fae;
+            text-decoration: none;
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        .link-address:hover {
+            text-decoration: underline;
+        }
+
+        .open-link {
+            flex-shrink: 0;
+            color: #687383;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .open-link:hover {
+            color: #182230;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .email-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .email {
+            background: #f5f7f9;
+            border: 1px solid #e5e8ec;
+            border-radius: 8px;
+            padding: 9px 12px;
+            color: #3c6fae;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .email:hover {
+            background: #eef1f5;
+        }
+
+        /* =========================
+           ENTITY TAGS
+        ========================= */
+
+        .entity-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .entity {
+            padding: 8px 12px;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            background: #fafbfc;
+            font-size: 13px;
+            color: #404852;
+        }
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        .empty {
+            color: #8a929d;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #e5e7eb;
+            background: #ffffff;
+            text-align: center;
+            padding: 25px;
+            color: #9299a3;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .search-row button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            main {
+                padding: 40px 17px 60px;
+            }
+
+            .header-inner {
+                padding: 18px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .link-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                AW
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    AI Web Intelligence
+                </div>
+
+                <div class="brand-subtitle">
+                    Web data extraction & analysis
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="eyebrow">
+            AI Engineering Project
+        </div>
+
+        <h1>
+            Turn websites into structured intelligence.
+        </h1>
+
+        <p>
+            Analyze a website, discover important links, extract contact
+            information, and identify organizations and locations from
+            publicly available web content.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <form method="POST" class="search-card">
+
+        <div class="search-label">
+            Website URL
+        </div>
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                name="url"
+                placeholder="https://example.com"
+                required
+            >
+
+            <button type="submit">
+                Analyze Website
+            </button>
+
+        </div>
+
+    </form>
+
+
+    {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+    {% endif %}
+
+
+    {% if result %}
+
+
+    <!-- =========================
+         ANALYSIS OVERVIEW
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Analysis Overview
+        </h2>
+
+        <p>
+            Structured information discovered from the website.
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                1
+            </div>
+
+            <div class="stat-label">
+                Page Crawled
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                {{ result.emails|length }}
+            </div>
+
+            <div class="stat-label">
+                Emails Found
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                {{ result.urls|length }}
+            </div>
+
+            <div class="stat-label">
+                URLs Found
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                {{ result.organizations|length }}
+            </div>
+
+            <div class="stat-label">
+                Organizations
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         WEBSITE
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Website Information
+        </h2>
+
+        <p>
+            Basic information collected from the analyzed page.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-title">
+            Analyzed Website
+        </div>
+
+        <a
+            href="{{ result.url }}"
+            target="_blank"
+            class="website-url"
+        >
+            {{ result.url }}
+        </a>
+
+
+        <div class="info-label">
+            Page Title
+        </div>
+
+        <div class="page-title">
+            {{ result.title }}
+        </div>
+
+
+        {% if result.unique_titles %}
+
+            <div class="info-label">
+                Unique Titles
+            </div>
+
+            <div class="page-title">
+                {% for title in result.unique_titles %}
+                    {{ title }}
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =========================
+         LINKS
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Discovered Links
+        </h2>
+
+        <p>
+            {{ result.urls|length }} unique links discovered on the analyzed page.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        {% if result.urls %}
+
+            <div class="link-list">
+
+                {% for link in result.urls %}
+
+                    <div class="link-item">
+
+                        <a
+                            href="{{ link }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link-address"
+                        >
+                            {{ link }}
+                        </a>
+
+                        <a
+                            href="{{ link }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="open-link"
+                        >
+                            Open ↗
+                        </a>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty">
+                No links detected.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =========================
+         CONTACT INFORMATION
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Contact Information
+        </h2>
+
+        <p>
+            Email addresses detected from the analyzed website.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        {% if result.emails %}
+
+            <div class="email-list">
+
+                {% for email in result.emails %}
+
+                    <a
+                        href="mailto:{{ email }}"
+                        class="email"
+                    >
+                        {{ email }}
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty">
+                No email addresses detected.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =========================
+         ORGANIZATIONS
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Organizations
+        </h2>
+
+        <p>
+            Organizations identified from the page content.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        {% if result.organizations %}
+
+            <div class="entity-list">
+
+                {% for organization in result.organizations %}
+
+                    <div class="entity">
+                        {{ organization }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty">
+                No organizations detected.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =========================
+         LOCATIONS
+    ========================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Locations
+        </h2>
+
+        <p>
+            Geographic locations identified from the page content.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        {% if result.locations %}
+
+            <div class="entity-list">
+
+                {% for location in result.locations %}
+
+                    <div class="entity">
+                        {{ location }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty">
+                No locations detected.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    {% endif %}
+
+</main>
+
+
+<footer>
+
+    AI Web Intelligence · AI Engineering Project
+
+</footer>
+
+
+</body>
+</html>
